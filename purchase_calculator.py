@@ -5,10 +5,10 @@ quantity = int(input("What is the quantity of good purchased? "))
 state_code = input("What's the state code(e.g CA, NY, TX.)? ").upper()
 
 price = unit_price * quantity
-discount = (10/100 * price) if quantity > 10 else 0
+discount = (10/100 * price) if quantity >= 10 else 0
 discounted_price = price - discount
 
-shipping_fee = 0 if price > 500 else 10 
+shipping_fee = 0 if discounted_price > 50 else 10 
 
 # tax_rate 
 
@@ -25,11 +25,13 @@ tax_amount = discounted_price * tax_rate
 
 # Vip perk
 vip = input("Are you a VIP? ").lower()
-vip_discount = 5.0 if vip == "yes" else 00
+vip_discount = 5.0 if vip == "yes" else 0
 
 # Total
 total_before_vip = discounted_price + shipping_fee + tax_amount
 final_total = total_before_vip - vip_discount
+final_total = final_total if final_total > 0 else 0
+
 print("\n--- RECEIPT---")
 print(f"Subtotal:               ${price:.2f}")
 print(f"Discount:              -${discount:.2f}")
