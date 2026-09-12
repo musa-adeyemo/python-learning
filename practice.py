@@ -1,0 +1,16 @@
+# Practice of string methods
+
+name = input("What's your name? ")
+phone_number = input("What's your phone number? ")
+print(len(name))
+print(name.find("B"))
+print(name.rfind("B") )
+print(name.capitalize())
+print(name.upper())
+print(name.lower())
+print(name.isdigit())
+print(name.isalpha())
+print(name.isalnum())
+print(phone_number.count("1"))
+print(phone_number.replace("-", " "))
+# print(help(str))
