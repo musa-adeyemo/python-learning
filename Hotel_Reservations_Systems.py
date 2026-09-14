@@ -4,8 +4,8 @@ name = input("What is your name? ").strip().title()
 
 nights_stayed = int(input("How many night have you stayed here? ").strip())
 
-room_type_code = input("What's the code for your room type: `STD` for"
-"standard at & $100/night, `SUT`  for Suite at $300/night, `DLX` for deluxe"
+room_type_code = input("What's the code for your room type: \"STD\" for"
+"standard at & $100/night, \"SUT\"  for Suite at $300/night, \"DLX\" for deluxe"
 " at $180/night)? ").strip().upper()
 
 if not room_type_code.isalpha():
@@ -21,12 +21,6 @@ elif room_type_code == "SUT":
     room_type_amount = 300
 else:
     room_type_amount = 100
-
-sub_total = nights_stayed * room_type_amount
-
-long_stay_discount = 50 if nights_stayed > 5 else 0
-
-total_room_cost = sub_total - long_stay_discount
 
 vip_discount = 15 / 100 * total_room_cost if memebership_id.startswith("VIP") else 0
 
@@ -48,3 +42,9 @@ print(f"The vip discounted price:        ${vip_discounted_total:.2f}")
 print(f"Tax_amount:                      ${tax:.2f}")
 print(f"Total_amount:                    ${total:.2f}")
 print(f"\nThank you {name} for your stay with us, we hope to see you again.")
+
+sub_total = nights_stayed * room_type_amount
+
+long_stay_discount = 50 if nights_stayed > 5 else 0
+
+total_room_cost = sub_total - long_stay_discount
