@@ -22,6 +22,12 @@ elif room_type_code == "SUT":
 else:
     room_type_amount = 100
 
+sub_total = nights_stayed * room_type_amount
+
+long_stay_discount = 50 if nights_stayed > 5 else 0
+
+total_room_cost = sub_total - long_stay_discount
+
 vip_discount = 15 / 100 * total_room_cost if memebership_id.startswith("VIP") else 0
 
 vip_discounted_total = total_room_cost - vip_discount
@@ -42,9 +48,3 @@ print(f"The vip discounted price:        ${vip_discounted_total:.2f}")
 print(f"Tax_amount:                      ${tax:.2f}")
 print(f"Total_amount:                    ${total:.2f}")
 print(f"\nThank you {name} for your stay with us, we hope to see you again.")
-
-sub_total = nights_stayed * room_type_amount
-
-long_stay_discount = 50 if nights_stayed > 5 else 0
-
-total_room_cost = sub_total - long_stay_discount
