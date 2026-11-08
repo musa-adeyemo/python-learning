@@ -1,7 +1,7 @@
 # Project Overview
 
 # You are hired by an international logistics hub to build a single-pass terminall auditing program. The system
-# takes raw, unformatted payload datafrom incoming transport ships, cleans and parsessecurityt codes, perform complex
+# takes raw, unformatted payload data from incoming transport ships, cleans and parses securityt codes, perform complex
 # tariff/math calculations, evaluates risk levels, and prints a formatted security clearance invoice.
 
 import math
@@ -10,7 +10,7 @@ raw_manifest_code = input("What's your raw payload string? (e.g., 'cargo-7890-CO
 gross_weight_lbs = float(input("Input your cargo weight as a floating point number: "))
 travel_distance_nm = float(input("Distance in nautical miles as a floating point number? "))
 security_passcode = input("Enter your 8-digit passcode: ")
-while len(security_passcode) != 8:
+while len(security_passcode) != 8: 
     print("The password input isn't exactly 8, please check it again.")
     security_passcode = (input("Enter your 8-digit passcode: ")).strip()
 security_passcode = int(security_passcode)
