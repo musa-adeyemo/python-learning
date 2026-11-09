@@ -7,6 +7,10 @@
 import math
 
 raw_manifest_code = input("What's your raw payload string? (e.g., 'cargo-7890-CONTAINER-XYZ-2026'). ").strip().upper()
+while raw_manifest_code == "":
+    print("It's compulsory you input the payload string.")
+    raw_manifest_code = input("What's your raw payload string? (e.g., 'cargo-7890-CONTAINER-XYZ-2026'). ").strip().upper()
+    
 gross_weight_lbs = float(input("Input your cargo weight as a floating point number: "))
 travel_distance_nm = float(input("Distance in nautical miles as a floating point number? "))
 security_passcode = input("Enter your 8-digit passcode: ")
