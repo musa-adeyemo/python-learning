@@ -31,23 +31,35 @@ monthly_rate = (annual_interest_rate / 100) / 12
 balance = starting_amount
 if "S" in mode_selection:
     monthly_deposit = float(input("Input your fixed monthly deposit: "))
+    print(f"\n{'--------RECEIPT--------':^60}")
+    print(f"\n{'Month':<6} | {'Interest':<15} | {'Balance':<15} | {'Progress':<8}")
+    print("-" * 68)
     for month in range(1, month_duration +1):
         balance = balance + monthly_deposit
         interest = balance * monthly_rate
         balance = balance + interest
-        print(f"{balance:,.2f}")
+        percent = (month / month_duration)
+        filled = int(percent * 20)
+        bar = ("#" * filled) + ("_" * (20 - filled))
+        print(f"{month:<6} | {interest:<15.2f} | {balance:<15.2f} | {bar:<8}")
+
 elif "L" in mode_selection:
     monthly_payment = float(input("How much do you plan to pay monthly? "))
+    print(f"\n{'--------RECEIPT--------':^60}")
+    print(f"\n{'Month':<6} | {'Interest':<15} | {'Balance':<15} | {'Progress':<8}")
+    print("-" * 68)
+    initial_balance = balance
     for month in range(1, month_duration + 1):
             monthly_interest = balance * monthly_rate
             while monthly_payment <= monthly_interest:
                 print("Warning!!!  you won't be able to pay off the loan with that amount.")
                 monthly_payment = float(input("How much do you plan to pay monthly? "))
             balance = (balance + monthly_interest) - monthly_payment
-            if balance < 0:
+            if balance <= 0:
+                 balance = 0
+            percent = ((initial_balance - balance) / initial_balance)
+            filled = int(percent * 20)
+            bar = ("#" * filled) + ("_" * (20 - filled))
+            print(f"{month:<6} | {monthly_interest:<15.2f} | {balance:<15.2f} | {bar:<8}")
+            if balance == 0:
                  break
-            print(f"{balance:,.2f}")
-
-print(f"\n{'--------RECEIPT--------':^50}")
-print(f"\n{'Month':<8} | {'Interest':<12} | {'Balance':<14} | {'Progress':<8}")
-print("-" * 62)
