@@ -67,7 +67,7 @@ while attempts > 0:
         print(f"Wrong password: {attempts} attempt(s) left.")
 
         if attempts == 0:
-            for seconds in range(10, 0, -1):
-                print(f"Locked out! Try again in {seconds}s...")
+            for seconds in range(10, -1, -1):
+                print(f"\rLocked out! Try again in {seconds:02d}s...", end="", flush=True)
                 time.sleep(1)
             attempts = 3
